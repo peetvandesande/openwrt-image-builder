@@ -1,0 +1,9 @@
+# Don't include the produced build file
+build.sh
+
+# Don't include my custom files
+files
+
+# Don't include the produced binaries
+bin
+
