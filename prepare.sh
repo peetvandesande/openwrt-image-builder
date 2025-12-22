@@ -44,10 +44,10 @@ FILES=(
     /etc/uhttpd.key
 )
 
-# for file in "${FILES[@]}"; do
-#   mkdir -p "files$(dirname "$file")"
-#   scp "root@${ROUTER}:$file" "files$file"
-# done
+for file in "${FILES[@]}"; do
+  mkdir -p "files$(dirname "$file")"
+  scp "root@${ROUTER}:$file" "files$file"
+done
 
 PACKAGES="$(ssh -o BatchMode=yes -o ConnectTimeout=5 root@${ROUTER} \
   "opkg list-installed | awk '{print \$1}' | xargs")"
